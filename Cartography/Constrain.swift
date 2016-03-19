@@ -93,6 +93,47 @@ public func constrain(view1: View, _ view2: View, _ view3: View, _ view4: View, 
     return group
 }
 
+/// Updates the constraints of five views.
+///
+/// - parameter view1:   A view to layout.
+/// - parameter view2:   A view to layout.
+/// - parameter view3:   A view to layout.
+/// - parameter view4:   A view to layout.
+/// - parameter view5:   A view to layout.
+/// - parameter view6:   A view to layout.
+/// - parameter replace: The `ConstraintGroup` whose constraints should be
+///                      replaced.
+/// - parameter block:   A block that declares the layout for the views.
+///
+public func constrain(view1: View, _ view2: View, _ view3: View, _ view4: View, _ view5: View, _ view6: View, replace group: ConstraintGroup = ConstraintGroup(), @noescape block: (LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy) -> ()) -> ConstraintGroup {
+    let context = Context()
+    block(LayoutProxy(context, view1), LayoutProxy(context, view2), LayoutProxy(context, view3), LayoutProxy(context, view4), LayoutProxy(context, view5), LayoutProxy(context, view6))
+    group.replaceConstraints(context.constraints)
+
+    return group
+}
+
+/// Updates the constraints of five views.
+///
+/// - parameter view1:   A view to layout.
+/// - parameter view2:   A view to layout.
+/// - parameter view3:   A view to layout.
+/// - parameter view4:   A view to layout.
+/// - parameter view5:   A view to layout.
+/// - parameter view6:   A view to layout.
+/// - parameter view7:   A view to layout.
+/// - parameter replace: The `ConstraintGroup` whose constraints should be
+///                      replaced.
+/// - parameter block:   A block that declares the layout for the views.
+///
+public func constrain(view1: View, _ view2: View, _ view3: View, _ view4: View, _ view5: View, _ view6: View, _ view7: View, replace group: ConstraintGroup = ConstraintGroup(), @noescape block: (LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy, LayoutProxy) -> ()) -> ConstraintGroup {
+    let context = Context()
+    block(LayoutProxy(context, view1), LayoutProxy(context, view2), LayoutProxy(context, view3), LayoutProxy(context, view4), LayoutProxy(context, view5), LayoutProxy(context, view6), LayoutProxy(context, view7))
+    group.replaceConstraints(context.constraints)
+
+    return group
+}
+
 /// Updates the constraints of an array of views.
 ///
 /// - parameter views:   The views to layout.
