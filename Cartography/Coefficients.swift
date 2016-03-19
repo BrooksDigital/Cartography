@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public struct Coefficients {
     var multiplier: CGFloat = 1
